@@ -40,14 +40,36 @@ export class MemberDetailComponent implements OnInit {
 
   getImages() {
     const imagesUrls = [];
-    for (let i = 0; i < this.user.photos.length; i++) {
-      imagesUrls.push({
-        small: this.user.photos[i].url,
-        medium: this.user.photos[i].url,
-        big: this.user.photos[i].url,
-        description: this.user.photos[i].description,
-      });
+
+    // this.user.photos.forEach(p => {
+    //   imagesUrls.push(
+    //       {
+    //         small: p.url,
+    //         medium: p.url,
+    //         big: p.url,
+    //         description: p.description
+    //       }
+    //   );
+    // });
+
+    for (const p of this.user.photos) {
+        imagesUrls.push(
+          {
+            small: p.url,
+            medium: p.url,
+            big: p.url,
+            description: p.description
+          }
+      );
     }
+    // for (let i = 0; i < this.user.photos.length; i++) {
+    //   imagesUrls.push({
+    //     small: this.user.photos[i].url,
+    //     medium: this.user.photos[i].url,
+    //     big: this.user.photos[i].url,
+    //     description: this.user.photos[i].description,
+    //   });
+    // }
     return imagesUrls;
   }
 
